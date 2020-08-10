@@ -10,10 +10,12 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.time.Duration;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static java.util.Arrays.copyOf;
 import static org.openqa.selenium.By.xpath;
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
 
@@ -36,7 +38,7 @@ public final class BankCrawler {
     }
 
     public final static BankCrawler getInstance(char[] password, String clientId) {
-        return new BankCrawler(password, clientId);
+        return new BankCrawler(copyOf(password, password.length), clientId);
     }
 
     //main facade
